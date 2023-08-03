@@ -1,7 +1,7 @@
 ---
 title: "linear model from Web"
-author: "Your Name"
-date: "Put semester and year"
+author: "Sakana Uthayasegar"
+date: "Summer 2023"
 output:
    html_document:
          toc: true
@@ -33,20 +33,48 @@ data <- read.csv(file="https://onlinestatbook.com/case_studies_rvls/physical_str
 
 ## Model 1 SIM~ARMS
 
-### scatterplot
+```{r}
+model.1 <- lm(SIMS~ARM, data=data)
+plot(SIMS~ARM, data=data)
+abline(model.1, col='red')
+```
+As arm strength increases, sims score increases.
 
 ### Numerical results
+
+```{r}
+cor(SIMS~ARM, data=data)
+```
+The correlation is 0.69 which shows arm strnegth has a relation to the sim score.
 
 
 ### Inferential  (Build model.1)
 
+```{r}
+model.1 <- lm(SIMS~ARM, data=data)
+summary.lm(model.1)
+```
+Both the intercept and the coefficient of ARM strength are significantly different from 0.
+
+
 #### Predict at target point
 
+```{r}
+newdata = data.frame(ARM=88, GRIP=94)
+predict(model.1, newdata, interval="predict")
+```
+The prediction interval is from -1.7 to 3.1 for SIM score.
 
-#### scatterplot with model fit
   
 
 ## Model 2 SIM~GRIP
+
+```{r}
+model.2 <- lm(SIMS~GRIP, data=data)
+plot(SIMS~GRIP, data=data)
+abline(model.2, col='red')
+```
+GRIP and SIMS are scattered in the middle and increase evenly. 
 
 ### Now add in scatterplot
 
