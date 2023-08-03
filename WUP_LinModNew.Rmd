@@ -76,16 +76,30 @@ abline(model.2, col='red')
 ```
 GRIP and SIMS are scattered in the middle and increase evenly. 
 
-### Now add in scatterplot
 
 
 ### Numerical results 
 
+```{r}
+cor(SIMS~GRIP, data=data)
+```
+The correlation is 0.6398458 which shows arm strength has a relation to the grip.
 
 ### Inferential  (Build model.2)
-  
 
+```{r}
+model.2 <- lm(SIMS~GRIP, data=data)
+summary.lm(model.2)
+```
+Both the intercept and the coefficient of GRIP are significantly different from 0.
+  
 #### predict model.2 at target point
+
+```{r}
+newdata = data.frame(ARM=88, GRIP=94)
+predict(model.2, newdata, interval="predict")
+```
+The prediction interval is from -3.1 to 2.03 for SIM score.
 
 #### now add the model fit to our plot for model.2
   
