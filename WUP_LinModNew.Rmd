@@ -113,7 +113,7 @@ model.3 <- lm(SIMS~ARM+GRIP, data=data)
 plot(SIMS~ARM+GRIP, data=data)
 abline(model.3, col='red')
 ```
-As arm strength increases, sims score increases and grip is scattered in the middle.
+N/A
 
 ### Numerical results (cor)
 
@@ -143,11 +143,7 @@ The prediction interval is from -2.1 to 2.43 for SIM score.
 ### Model.1 vs Model.3
 ```{r}
 anova(model.1,model.3)
-```
-### Model.2 vs Model.3
-```{r}
-anova(model.1,model.2)
-```
+``
 
 ## Informally compare Model.1 with model.2
 
@@ -158,4 +154,4 @@ anova(model.2,model.3)
 Comparing all models, model three is lesser in numbers than the other two models. 
 
 ### discussion and conclusion 
-To conclude this discussion, model three would be determined as the best choice because of the lower rss rate compared to Model one and two.
+To conclude this discussion, model three would be determined as the best choice because of the lower rss rate compared to Model one and two. The null hypothesis would be rejected due to the small amount of the p value. 
