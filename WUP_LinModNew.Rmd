@@ -141,7 +141,21 @@ The prediction interval is from -2.1 to 2.43 for SIM score.
 ## Comparing nested models ANOVA Test
 
 ### Model.1 vs Model.3
+```{r}
+anova(model.1,model.3)
+```
 ### Model.2 vs Model.3
+```{r}
+anova(model.1,model.2)
+```
 
 ## Informally compare Model.1 with model.2
 
+```{r}
+anova(model.2,model.3)
+```
+
+Comparing all models, model three is lesser in numbers than the other two models. 
+
+### discussion and conclusion 
+To conclude this discussion, model three would be determined as the best choice because of the lower rss rate compared to Model one and two.

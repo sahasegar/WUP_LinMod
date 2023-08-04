@@ -399,7 +399,10 @@ Model.3</a></li>
 Model.3</a></li>
 </ul></li>
 <li><a href="#informally-compare-model.1-with-model.2" id="toc-informally-compare-model.1-with-model.2">Informally compare
-Model.1 with model.2</a></li>
+Model.1 with model.2</a>
+<ul>
+<li><a href="#discussion-and-conclusion" id="toc-discussion-and-conclusion">discussion and conclusion</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -566,13 +569,49 @@ predict(model.3, newdata, interval=&quot;predict&quot;)</code></pre>
 <h2>Comparing nested models ANOVA Test</h2>
 <div id="model.1-vs-model.3" class="section level3">
 <h3>Model.1 vs Model.3</h3>
+<pre class="r"><code>anova(model.1,model.3)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: SIMS ~ ARM
+## Model 2: SIMS ~ ARM + GRIP
+##   Res.Df    RSS Df Sum of Sq      F    Pr(&gt;F)    
+## 1    145 217.88                                  
+## 2    144 188.43  1     29.45 22.506 4.994e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>
 <div id="model.2-vs-model.3" class="section level3">
 <h3>Model.2 vs Model.3</h3>
+<pre class="r"><code>anova(model.1,model.2)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: SIMS ~ ARM
+## Model 2: SIMS ~ GRIP
+##   Res.Df    RSS Df Sum of Sq F Pr(&gt;F)
+## 1    145 217.88                      
+## 2    145 243.07  0   -25.189</code></pre>
 </div>
 </div>
 <div id="informally-compare-model.1-with-model.2" class="section level2">
 <h2>Informally compare Model.1 with model.2</h2>
+<pre class="r"><code>anova(model.2,model.3)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: SIMS ~ GRIP
+## Model 2: SIMS ~ ARM + GRIP
+##   Res.Df    RSS Df Sum of Sq      F    Pr(&gt;F)    
+## 1    145 243.07                                  
+## 2    144 188.43  1    54.639 41.755 1.495e-09 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Comparing all models, model three is lesser in numbers than the other
+two models.</p>
+<div id="discussion-and-conclusion" class="section level3">
+<h3>discussion and conclusion</h3>
+<p>To conclude this discussion, model three would be determined as the
+best choice because of the lower rss rate compared to Model one and
+two.</p>
+</div>
 </div>
 
 
