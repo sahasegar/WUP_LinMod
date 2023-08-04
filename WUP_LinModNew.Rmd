@@ -45,7 +45,7 @@ As arm strength increases, sims score increases.
 ```{r}
 cor(SIMS~ARM, data=data)
 ```
-The correlation is 0.69 which shows arm strnegth has a relation to the sim score.
+The correlation is 0.69 which shows arm strength has a relation to the sim score.
 
 
 ### Inferential  (Build model.1)
@@ -103,18 +103,40 @@ The prediction interval is from -3.1 to 2.03 for SIM score.
 
 #### now add the model fit to our plot for model.2
   
+  
 
 
 ## Model 3 SIM~ARM+GRIP
 
+```{r}
+model.3 <- lm(SIMS~ARM+GRIP, data=data)
+plot(SIMS~ARM+GRIP, data=data)
+abline(model.3, col='red')
+```
+As arm strength increases, sims score increases and grip is scattered in the middle.
+
 ### Numerical results (cor)
 
-`
-  
+```{r}
+cor(SIMS~ARM+GRIP, data=data)
+```
+ The correlation is 0.732 which shows arm strength and grip as a relation to the sim score.
+ 
 ### Inferential  (Build 2-dimentional model.3)
 
+```{r}
+model.3 <- lm(SIMS~ARM+GRIP, data=data)
+summary.lm(model.3)
+```
+Both the intercept and the coefficient of GRIP and arm strength are significantly different from 0.
+
 #### predict model.3 at target point
-  
+
+```{r}
+newdata = data.frame(ARM=88, GRIP=94)
+predict(model.3, newdata, interval="predict")
+```
+The prediction interval is from -2.1 to 2.43 for SIM score.
 
 ## Comparing nested models ANOVA Test
 
