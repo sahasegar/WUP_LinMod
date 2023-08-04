@@ -143,7 +143,7 @@ The prediction interval is from -2.1 to 2.43 for SIM score.
 ### Model.1 vs Model.3
 ```{r}
 anova(model.1,model.3)
-``
+```
 
 ## Informally compare Model.1 with model.2
 
