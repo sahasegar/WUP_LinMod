@@ -110,8 +110,7 @@ The prediction interval is from -3.1 to 2.03 for SIM score.
 
 ```{r}
 model.3 <- lm(SIMS~ARM+GRIP, data=data)
-plot(SIMS~ARM+GRIP, data=data)
-abline(model.3, col='red')
+print(summary(model.3))
 ```
 N/A
 
@@ -128,7 +127,7 @@ cor(SIMS~ARM+GRIP, data=data)
 model.3 <- lm(SIMS~ARM+GRIP, data=data)
 summary.lm(model.3)
 ```
-Both the intercept and the coefficient of GRIP and arm strength are significantly different from 0.
+As grip/arm strength increases, the sims increases. 
 
 #### predict model.3 at target point
 
